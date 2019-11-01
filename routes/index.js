@@ -2,11 +2,16 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
-var fileName = './test.txt';
+var fileName = './controller/test.txt';
 
 /* GET home page. */
 router.get('/', function (req, res) {
   res.render('index', {fileName: 'fileName', lines: readLastLines(fileName, 2)});
+});
+
+router.get('/read', function (req, res) {
+  var n = req.query ? req.query.n || 10 : 10;
+  res.render('index', {fileName: 'fileName', lines: readLastLines(fileName, n)});
 });
 
 module.exports = router;

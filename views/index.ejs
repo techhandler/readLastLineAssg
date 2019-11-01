@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Imitate Tail in Node</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>File : <%= fileName %></h1>
-    <% for (var i=0; i< lines.length; i++) {%>
-      <%= lines[i]%><br/>
-    <% }%>
-  </body>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<form action="/read">
+    <input type="number" placeholder="no of lines" name="n"/>
+    <input type="submit">
+</form>
+<h1>File : <%= fileName %></h1>
+<% for (var i = 0; i < lines.length; i++) { %>
+    <%= lines[i] %><br/>
+<% } %>
+</body>
 </html>
