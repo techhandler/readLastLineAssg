@@ -5,13 +5,15 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<form action="/read">
+<form action="/" onSubmit="">
     <input type="number" placeholder="no of lines" name="n"/>
     <input type="submit">
 </form>
-<h1>File : <%= fileName %></h1>
-<% for (var i = 0; i < lines.length; i++) { %>
-    <%= lines[i] %><br/>
-<% } %>
+<h1>FileName : <%= fileName %></h1>
+<p id="terminal-view"></p>
 </body>
+<script src="/socket.io/socket.io.js"></script>
+<script>var socket = io();
+  socket.on('file-changed', function (fileData) {document.getElementById('terminal-view').innerHTML = '<ul><li>' + fileData.join('</li><li>') + '</li></ul>';});
+</script>
 </html>
