@@ -5,11 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<form action="/" onSubmit="">
-    <input type="number" placeholder="no of lines" name="n"/>
-    <input type="submit">
-</form>
-<h1>FileName : <%= fileName %></h1>
+<div>
+    <h3 style="float: left">File Name : <%= fileName %></h3>
+    <form action="/" onsubmit=handleOnSubmit() class="line-form">
+        <input type="number" placeholder="no of lines" name="n"/>
+        <input type="submit">
+    </form>
+</div>
 <div class="terminal">
     <div id="terminal-header">
         <div class="btn close"></div>
@@ -23,5 +25,12 @@
 <script type="text/javascript">
   const socket = io();
   socket.on('file-changed', (fileData) => document.getElementById('terminal-screen').innerHTML = '<ul><li>' + fileData.join('</li><li>') + '</li></ul>');
+
+  function handleOnSubmit() {
+    event.preventDefault();
+    let lines = event.target['n'].value;
+
+    socket.emit('get-updated', {lines})
+  }
 </script>
 </html>

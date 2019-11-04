@@ -7,9 +7,11 @@ a {
     color: #00B7FF;
 }
 
-.terminal{
+.terminal {
     border-radius: 6px;
     box-shadow: 0 0 4px 1px #444;
+    margin-top: 10px;
+    clear: both;
 }
 
 #terminal-header {
@@ -18,7 +20,7 @@ a {
     border-radius: 5px 5px 0 0;
 }
 
-#terminal-header .btn{
+#terminal-header .btn {
     height: 12px;
     width: 12px;
     float: left;
@@ -50,11 +52,39 @@ a {
     border-radius: 0 0 5px 5px;
 }
 
-ul{
+ul {
     padding: 0;
     margin: 0;
 }
 
-li{
+li {
     display: block;
+}
+
+.line-form {
+    display: block;
+    float: right;
+    margin: 1em 0;
+}
+
+.line-form input[type=number] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    width: 200px;
+    outline: none;
+}
+
+.line-form input[type=submit] {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #bbb;
+    width: 80px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.line-form input[type=submit]:hover {
+    background-color: #444;
+    color: #fff;
 }

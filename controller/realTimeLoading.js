@@ -12,7 +12,11 @@ const readLastLines = function (filename, lineNo) {
 
 module.exports = function (socket, io) {
   socket.emit('file-changed', readLastLines(file, 10));
+  socket.on('get-updated', function (data) {
+    let lines = data && data.lines ? data.lines : 10;
+    socket.emit('file-changed', readLastLines(file, lines));
+  });
   fs.watchFile(file, {interval: 100}, function () {
     socket.emit('file-changed', readLastLines(file, 10));
   });
-}
+};
