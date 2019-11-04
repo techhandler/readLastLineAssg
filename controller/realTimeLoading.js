@@ -1,10 +1,10 @@
-var fs = require('fs');
-var file = './controller/test.txt';
+const fs = require('fs');
+const file = './controller/test.txt';
 
-var readLastLines = function (filename, lineNo) {
+const readLastLines = function (filename, lineNo) {
   lineNo = lineNo || 10;
-  var data = fs.readFileSync(filename, 'utf8'), lines = data.split("\n"), tailLines = [];
-  var n = (lines.length - lineNo) > 0 ? (lines.length - lineNo) : 0;
+  let data = fs.readFileSync(filename, 'utf8'), lines = data.split("\n"), tailLines = [];
+  let n = (lines.length - lineNo) > 0 ? (lines.length - lineNo) : 0;
   for (; (n < lines.length); n++)
     tailLines.push(lines[n]);
   return tailLines;

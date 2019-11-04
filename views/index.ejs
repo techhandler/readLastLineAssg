@@ -10,10 +10,18 @@
     <input type="submit">
 </form>
 <h1>FileName : <%= fileName %></h1>
-<p id="terminal-view"></p>
+<div class="terminal">
+    <div id="terminal-header">
+        <div class="btn close"></div>
+        <div class="btn minimise"></div>
+        <div class="btn zoom"></div>
+    </div>
+    <div id="terminal-screen"></div>
+</div>
 </body>
 <script src="/socket.io/socket.io.js"></script>
-<script>var socket = io();
-  socket.on('file-changed', function (fileData) {document.getElementById('terminal-view').innerHTML = '<ul><li>' + fileData.join('</li><li>') + '</li></ul>';});
+<script type="text/javascript">
+  const socket = io();
+  socket.on('file-changed', (fileData) => document.getElementById('terminal-screen').innerHTML = '<ul><li>' + fileData.join('</li><li>') + '</li></ul>');
 </script>
 </html>
